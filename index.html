@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    
+<script>
+    const http = new XMLHttpRequest()
+
+http.open("GET", "http://ip-api.com/json/")
+http.send()
+
+http.onload = () => console.log(http.responseText)
+</script>
+</body>
+</html>
