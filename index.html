@@ -8,7 +8,7 @@
 <script>
     const http = new XMLHttpRequest()
 
-http.open("GET", "http://ip-api.com/json/")
+http.open("GET", "https://api.ipify.org?format=json")
 http.send()
 
 http.onload = () => console.log(http.responseText)
